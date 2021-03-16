@@ -62,7 +62,7 @@ char		*ft_strcpy(char *str1, const char *str2)
 	return (str1);
 }
 
-char	*ft_strjoin(char const *s1, char const *s2)
+char	*ft_strjoin(char *s1, char *s2)
 {
 	size_t	len;
 	size_t	i;
@@ -81,3 +81,4 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	strj[i] = '\0';
 	return (strj);
 }
+
