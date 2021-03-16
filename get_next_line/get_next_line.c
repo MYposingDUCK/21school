@@ -74,6 +74,8 @@ static char		*check_remainder_line(char **remainder_line, char **line)
 	static char	*remainder_line[10000];
 	char		*tmp;
 
+	if ((!line || fd < 0 || BUFFER_SIZE < 1 || (read(fd, buff, 0)) < 0))
+		return (-1);
 	p = check_remainder_line(&remainder_line[fd], line);
 	while ((!p) && (byte_was_read = read(fd, buff, BUFFER_SIZE)))
 	{
@@ -88,6 +90,7 @@ static char		*check_remainder_line(char **remainder_line, char **line)
 		tmp = *line;
 		if (!(*line = ft_strjoin(*line, buff)))
 			return (-1);
+		
 		free(tmp);
 	}
 	return (p ? 1 : 0);
